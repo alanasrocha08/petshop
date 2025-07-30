@@ -3,6 +3,8 @@ import { Roboto, Fjalla_One } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Children } from "react";
+import Cabecalho from "@/components/Cabecalho";
+import Menu from "@/components/Menu";
 
 /* Confidua variáveis para as fontes */
 const roboto = Roboto({
@@ -39,17 +41,8 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${roboto.variable} ${fjallaOne.variable}`}>
-        <header>
-          <h1>
-            <Link href="/">PetShop</Link>
-          </h1>
-          <nav>
-            <Link href="/">Blog</Link>
-            <Link href="/produtos">Produtos</Link>
-            <Link href="/sobre">Sobre</Link>
-            <Link href="/contato">Contato</Link>
-          </nav>
-        </header>
+        <Cabecalho />
+        <Menu />
         <main className="limitador">{children}</main>
       </body>
     </html>
