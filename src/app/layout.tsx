@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${roboto.variable} ${fjallaOne.variable}`}>
         <Cabecalho />
-        <Menu />
+
         <main className="limitador">{children}</main>
       </body>
     </html>
