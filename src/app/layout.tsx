@@ -13,13 +13,20 @@ const roboto = Roboto({
 const fjallaOne = Fjalla_One({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--fjalla-one",
+  variable: "--font-fjalla",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "PetShop",
   description: "Mini portal do PetShop com, notícias, produtos e muito mais.",
+  keywords: ["petshop", "animais", "cachorros", "gatos"],
+  authors: [
+    {
+      name: "Alana",
+      url: "https://github.com/alanasrocha",
+    },
+  ],
 };
 
 export default function RootLayout({
