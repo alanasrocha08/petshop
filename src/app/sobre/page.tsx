@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import estilos from "./sobre.module.css";
 
 export const metadata: Metadata = {
   title: "Sobre | PetShop",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function sobre() {
   return (
-    <section>
+    <section className={estilos.conteudo}>
       <h2>Sobre</h2>
       <p>
         Somos apaixonados por animais e acreditamos que todo pet merece amor,

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import estilos from "./contato.module.css";
 
 export const metadata: Metadata = {
   title: "Contato | PetShop",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function contato() {
   return (
-    <section>
+    <section className={estilos.conteudo}>
       <h2>Contato</h2>
       <p>
         Entre em contato conosco! Seja para tirar dúvidas, receber orientações,

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import estilos from "./produtos.module.css";
 
 export const metadata: Metadata = {
   title: "Produtos |  PetShop",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function produtos() {
   return (
-    <section>
+    <section className={estilos.conteudo}>
       <h2>Produtos</h2>
       <p>
         Descubra nossa variedade de produtos cuidadosamente selecionados para

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+import estilos from "./page.module.css";
 
 export default function Home() {
   return (
-    <section>
+    <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
       <p>
         Fique por dentro das últimas novidades do mundo pet! Dicas de cuidados,
