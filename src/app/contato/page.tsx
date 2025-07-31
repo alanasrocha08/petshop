@@ -12,13 +12,12 @@ export default function contato() {
     <section className={estilos.conteudo}>
       <h2>Contato</h2>
       <p>
-        Entre em contato conosco! Seja para tirar dúvidas, receber orientações,
-        fazer sugestões ou pedir informações sobre nossos produtos e serviços,
-        estamos prontos para ajudar você e seu pet. Preencha o formulário ou
-        utilize um dos nossos canais de atendimento. Sua mensagem é muito
-        importante para nós, e responderemos o mais breve possível para garantir
-        o melhor para o seu companheiro de quatro patas.
+        Você pode nos enviar um e-mail para{" "}
+        <a href="mailto:contato@petshop.com">contato@petshop.com</a> ou nos
+        ligar pelo telefone <a href="tel:+5511999999999">+55 11 99999-9999</a>
       </p>
+
+      <p>Se preferir, use o formulário abaixo:</p>
     </section>
   );
 }
