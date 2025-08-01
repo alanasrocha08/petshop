@@ -1,6 +1,6 @@
 import { Post } from "@/types/Post";
 
-const posts: Post[] = [
+const arrayPosts: Post[] = [
   {
     id: 1,
 
@@ -55,4 +55,4 @@ const posts: Post[] = [
   },
 ];
 
-export default posts;
+export default arrayPosts;

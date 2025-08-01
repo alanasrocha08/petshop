@@ -1,13 +1,14 @@
 import { Metadata } from "next";
 import estilos from "./page.module.css";
 import ListaPosts from "@/components/ListaPosts";
+import arrayPosts from "@/data/array-post";
 
 export default function Home() {
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
       <p>Aqui você encontra as últimas notícias sobre Pets.</p>
-      <ListaPosts />
+      <ListaPosts posts={arrayPosts} />
     </section>
   );
 }
