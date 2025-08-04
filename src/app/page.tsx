@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import estilos from "./page.module.css";
 import ListaPosts from "@/components/ListaPosts";
-import arrayPosts from "@/data/array-post";
 import { Post } from "@/types/Post";
 
 export default async function Home() {
