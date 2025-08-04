@@ -15,7 +15,6 @@ export default async function Home() {
   }
 
   const posts: Post[] = await resposta.json();
-  console.log(posts);
 
   return (
     <section className={estilos.conteudo}>
