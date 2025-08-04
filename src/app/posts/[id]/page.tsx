@@ -41,6 +41,8 @@ export async function genereteMetadata({ params }: DetalhePostProps) {
 
 export default async function DetalhePost({ params }: DetalhePostProps) {
   const { id } = await params;
+  console.log(id);
+
   const resposta = await fetch(`http://localhost:2112/posts/${id}`);
 
   if (!resposta.ok) {
