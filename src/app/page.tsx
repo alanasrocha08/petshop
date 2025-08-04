@@ -2,15 +2,19 @@ import { Metadata } from "next";
 import estilos from "./page.module.css";
 import ListaPosts from "@/components/ListaPosts";
 import arrayPosts from "@/data/array-post";
+import { Post } from "@/types/Post";
 
 export default async function Home() {
-  const resposta = await fetch(`http://localhost:2112/posts`);
+  const resposta = await fetch(`http://localhost:2112/posts`, {
+    // Revalidamos o cache next a cada requisoção para garantir que os dados estejam sempre atualizados
+    next: { revalidate: 0 },
+  });
 
   if (!resposta.ok) {
-    throw new Error(`Erro ao buscar post: ${resposta.statusText}`);
+    throw new Error("Erro ao buscar post" + resposta.statusText);
   }
 
-  const posts = await resposta.json();
+  const posts: Post[] = await resposta.json();
   console.log(posts);
 
   return (
