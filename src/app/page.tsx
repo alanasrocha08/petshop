@@ -3,12 +3,21 @@ import estilos from "./page.module.css";
 import ListaPosts from "@/components/ListaPosts";
 import arrayPosts from "@/data/array-post";
 
-export default function Home() {
+export default async function Home() {
+  const resposta = await fetch(`http://localhost:2112/posts`);
+
+  if (!resposta.ok) {
+    throw new Error(`Erro ao buscar post: ${resposta.statusText}`);
+  }
+
+  const posts = await resposta.json();
+  console.log(posts);
+
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
       <p>Aqui você encontra as últimas notícias sobre Pets.</p>
-      <ListaPosts posts={arrayPosts} />
+      <ListaPosts posts={posts} />
     </section>
   );
 }
