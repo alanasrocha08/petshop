@@ -8,6 +8,9 @@ type ListaPostProps = {
 };
 
 export default function ListaPosts({ posts }: ListaPostProps) {
+  const categorias = posts.map((post) => post.categoria);
+  console.log(categorias);
+
   return (
     <>
       <FiltroCategorias />
