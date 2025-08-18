@@ -1,19 +1,36 @@
+"use client";
+
 import { Post } from "@/types/Post";
 import estilos from "./ListaPosts.module.css";
 import Link from "next/link";
 import FiltroCategorias from "./FiltroCategorias";
+import { useState } from "react";
+import SemPosts from "./SemPosts";
 
-type ListaPostProps = {
+type ListaPostsProps = {
   posts: Post[];
 };
 
-export default function ListaPosts({ posts }: ListaPostProps) {
-  const categorias = posts.map((post) => post.categoria);
-  console.log(categorias);
+export default function ListaPosts({ posts }: ListaPostsProps) {
+  /* Gerando um novo array de categorias usando map e garantindo
+  que não há repetição de categorias usando spread e new Set. */
+  const categorias = [...new Set(posts.map((post) => post.categoria))];
+
+  /* Definindo o state com tipos null (quando não há categoria selecionada)
+  ou string (que é o tipo para nomes/textos referentes às categorias).
+  Passamos null entre parênteses indicando que por padrão não há categoria selecionada. */
+  const [categoriaAtiva, setCategoriaAtiva] = useState<null | string>("saúde");
+
+  const postsFiltrados = categoriaAtiva
+    ? posts.filter((post) => post.categoria === categoriaAtiva)
+    : posts;
+
+  console.log(postsFiltrados);
 
   return (
     <>
       <FiltroCategorias />
+
       <div className={estilos.posts}>
         {posts.map(({ id, titulo, subtitulo }) => (
           <article key={id}>
