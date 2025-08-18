@@ -1,16 +1,16 @@
-import { Metadata } from "next";
-import estilos from "./page.module.css";
+// src/app/page.tsx
 import ListaPosts from "@/components/ListaPosts";
+import estilos from "./page.module.css";
 import { Post } from "@/types/Post";
+import SemPosts from "@/components/SemPosts";
 
 export default async function Home() {
   const resposta = await fetch(`http://localhost:2112/posts`, {
-    // Revalidamos o cache next a cada requisição para garantir que os dados estejam sempre atualizados
     next: { revalidate: 0 },
   });
 
   if (!resposta.ok) {
-    throw new Error("Erro ao buscar post" + resposta.statusText);
+    throw new Error("Erro ao buscar os posts: " + resposta.statusText);
   }
 
   const posts: Post[] = await resposta.json();
@@ -18,21 +18,9 @@ export default async function Home() {
   return (
     <section className={estilos.conteudo}>
       <h2>Pet Notícias</h2>
-      <p>Aqui você encontra as últimas notícias sobre Pets.</p>
-      <ListaPosts posts={posts} />
+
+      {/* Renderização condicional */}
+      {posts.length === 0 ? <SemPosts /> : <ListaPosts posts={posts} />}
     </section>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Notícias | PetShop",
-  description:
-    "Confira novidades, dicas de saúde, alimentação e eventos do mundo pet. Fique informado para garantir o bem-estar e felicidade do seu animal de estimação",
-  keywords: ["petshop", "animais", "cachorros", "gatos"],
-  authors: [
-    {
-      name: "Alana",
-      url: "https://github.com/alanasrocha",
-    },
-  ],
-};
