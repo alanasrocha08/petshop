@@ -28,7 +28,7 @@ export default function Formulario() {
 
     try {
       await enviarContato(dadosForm);
-      setMensagem("Mensagem enviado cim sucesso!");
+      setMensagem("Mensagem enviado com sucesso!");
       setTipoMensagem("sucesso");
 
       // Reseta os campos do formulário
@@ -73,6 +73,12 @@ export default function Formulario() {
       <div className={estilos.campo}>
         <BotaoEnviar />
       </div>
+
+      {mensagem && (
+        <p className={`${estilos.mensagem} ${estilos[tipoMensagem]}`}>
+          {mensagem}
+        </p>
+      )}
     </form>
   );
 }
