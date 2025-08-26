@@ -6,7 +6,7 @@ import { Children } from "react";
 import Cabecalho from "@/components/Cabecalho";
 import Menu from "@/components/Menu";
 
-/* Confidua variáveis para as fontes */
+/* Configura variáveis para as fontes */
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
       url: "https://github.com/alanasrocha",
     },
   ],
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "petshop",
+    /* Se tivéssemos ícones específicos ára dispositivos Aples, você ta,bém colocaria aqui. */
+  },
 };
 
 export default function RootLayout({
